@@ -1,0 +1,78 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "./node_modules/eslint-config-airbnb-base/rules/best-practices.js",
+    "./node_modules/eslint-config-airbnb-base/rules/errors.js",
+    "./node_modules/eslint-config-airbnb-base/rules/node.js",
+    "./node_modules/eslint-config-airbnb-base/rules/style.js",
+    "./node_modules/eslint-config-airbnb-base/rules/variables.js",
+    "./node_modules/eslint-config-airbnb-base/rules/es6.js",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "plugin:import/recommended",
+    "plugin:import/typescript"
+  ],
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts"]
+    },
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true
+      }
+    }
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "sourceType": "module"
+  },
+  "plugins": ["@typescript-eslint/eslint-plugin", "import", "deprecation"],
+  "ignorePatterns": ["dist/*"],
+  "rules": {
+    "max-classes-per-file": "off",
+    "no-return-await": "off",
+    "class-methods-use-this": ["warn"],
+    "lines-between-class-members": "off",
+    "@typescript-eslint/no-for-in-array": "warn",
+    "@typescript-eslint/explicit-function-return-type": ["warn", { "allowExpressions": true }],
+    "no-console": ["error"],
+    "no-debugger": ["error"],
+    "@typescript-eslint/no-use-before-define": "warn",
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": ["error"],
+    "no-useless-constructor": "off",
+    "no-underscore-dangle": "off",
+    "@typescript-eslint/no-inferrable-types": 0,
+    "import/default": "off",
+    "comma-dangle": "error",
+    "semi": "error",
+    "quotes": ["error", "double"],
+    "prefer-destructuring": "off",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["warn"],
+    "no-use-before-define": "off",
+    "import/newline-after-import": ["error", { "count": 1 }],
+    "import/order": [
+      "warn",
+      {
+        "alphabetize": { "order": "asc" },
+        "pathGroups": [
+          { "pattern": "@module/**", "group": "internal" },
+          { "pattern": "@local-aws/**", "group": "internal" },
+          { "pattern": "@queue/**", "group": "internal" }
+        ],
+        "newlines-between": "always"
+      }
+    ],
+    "import/no-named-as-default": "off",
+    "no-restricted-syntax": "off",
+    "no-empty-function": "off",
+    "@typescript-eslint/no-empty-function": "warn",
+    "consistent-return": "off"
+  },
+  "env": {
+    "node": true,
+    "jest": true
+  }
+}

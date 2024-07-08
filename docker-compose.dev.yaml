@@ -1,0 +1,16 @@
+version: "3.7"
+
+services:
+  block_streaming_server:
+    container_name: "block-streaming-service"
+    build:
+      context: .
+    command: npm run start:prod
+    volumes:
+      - .:/opt/node_app:delegated
+      - ./package.json:/opt/node_app/package.json
+      - ./package-lock.json:/opt/node_app/package-lock.json
+    env_file:
+      - .env
+    ports:
+      - "5100:5100"
